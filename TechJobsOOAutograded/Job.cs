@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Text;
 using System.Xml.Linq;
 
 namespace TechJobsOO
@@ -44,7 +45,62 @@ namespace TechJobsOO
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
-        } 
+        }
+
+
+        public override string ToString()
+        {
+            
+            string msg = $"\nId: {Id}\n";
+            string noData = "Data Not Available";
+
+            if (Name == "")
+            {
+                msg += $"Name: {noData}\n";
+            }
+            else
+            {
+                msg += $"Name: {Name}\n";
+            }
+
+            if (EmployerName.Value == "")
+            {
+                msg += $"Employer: {noData}\n";
+            }
+            else
+            {
+                msg += $"Employer: {EmployerName.Value}\n";
+            }
+
+            if (EmployerLocation.Value == "")
+            {
+                msg += $"Location: {noData}\n";
+            }
+            else
+            {
+                msg += $"Location: {EmployerLocation.Value}\n";
+            }
+
+            if (JobType.Value == "")
+            {
+                msg += $"Position Type:{noData}\n";
+            }
+            else
+            {
+                msg += $"Position Type: {JobType.Value}\n";
+            }
+
+            if (JobCoreCompetency.Value == "")
+            {
+                msg += $"Core Competency: {noData}\n";
+            }
+            else
+            {
+                msg += $"Core Competency: {JobCoreCompetency.Value}\n";
+            }
+
+            return msg;
+        }
 
 
     }

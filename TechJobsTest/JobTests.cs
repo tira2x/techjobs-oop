@@ -37,22 +37,23 @@ namespace TechJobsTest
         [TestMethod]
         public void TestToStringStartsAndEndsWithNewLine()
         {
-            TechJob job1 = new TechJob();
+            TechJob job1 = new TechJob("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            Assert.AreEqual('\n', job1.ToString()[0]);
-            Assert.AreEqual('\n', job1.ToString()[job1.ToString().Length - 1]);
+            Assert.AreEqual(true, job1.ToString().StartsWith("\n"));
+            Assert.AreEqual(true, job1.ToString().EndsWith("\n"));
         }
 
         [TestMethod]
         public void TestToStringContainsCorrectLabelsAndData()
         {
             TechJob job1 = new TechJob("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            Assert.AreEqual(job1.ToString(), $"ID: {job1.Id} \n" +
-                $"Name: {job1.Name}\n" +
-                $"Employer:  {job1.EmployerName}\n" +
-                $"Location: {job1.EmployerLocation}\n" +
-                $"Position Type: {job1.JobType}\n" +
-                $"Core Competency: {job1.JobCoreCompetency}");
+            
+            Assert.AreEqual(true, job1.ToString().Contains($"Id: {job1.Id}"));
+            Assert.AreEqual(true, job1.ToString().Contains("Name: Product tester"));
+            Assert.AreEqual(true, job1.ToString().Contains("Employer: ACME"));
+            Assert.AreEqual(true, job1.ToString().Contains("Location: Desert"));
+            Assert.AreEqual(true, job1.ToString().Contains("Position Type: Quality control"));
+            Assert.AreEqual(true, job1.ToString().Contains("Core Competency: Persistence"));
         }
         [TestMethod]
         public void TestToStringHandlesEmptyField()
@@ -64,6 +65,18 @@ namespace TechJobsTest
                 $"Location: Data not available\n" +
                 $"Position Type: Data not available\n" +
                 $"Core Competency: Data not available");
+        }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            TechJob job1 = new TechJob("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Assert.AreEqual(job1.ToString(), $"ID: {job1.Id} \n" +
+                $"Name: {job1.Name}\n" +
+                $"Employer:  {job1.EmployerName}\n" +
+                $"Location: {job1.EmployerLocation}\n" +
+                $"Position Type: {job1.JobType}\n" +
+                $"Core Competency: {job1.JobCoreCompetency}");
         }
 
         [TestMethod]

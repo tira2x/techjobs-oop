@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobsOO;
 using TechJobsOOAutograded;
-using TechJobsTests;
+using TechJobsTest;
 
 namespace TechJobsOOTests
 {
@@ -45,11 +45,12 @@ namespace TechJobsOOTests
 
 
         [TestMethod]  //2
-        public void Test_TestToString_Starts_And_Ends_With_NewLine()
+        public void Test_TestToStringStartsAndEndsWithNewLine()
         {
             //setup
             //comparing output to a text file.  id numbers may get a little wonky
-            string text = System.IO.File.ReadAllText("StartsAndEndsWithNewLine.txt").ToString();
+            string text = File.ReadAllText("StartsAndEndsWithNewLine.txt").ToString();
+            //string text = System.IO.File.ReadAllText("StartsAndEndsWithNewLine.txt").ToString();
 
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
@@ -141,7 +142,8 @@ namespace TechJobsOOTests
         {
                         //setup
             //comparing output to a text file.  id numbers may get a little wonky
-            string text = System.IO.File.ReadAllText("EmptyFieldTest.txt").ToString();
+            string text = File.ReadAllText("EmptyFieldTest.txt").ToString();
+            //string text = System.IO.File.ReadAllText("EmptyFieldTest.txt").ToString();
 
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
@@ -156,4 +158,4 @@ namespace TechJobsOOTests
         }
     }
 }
-*/
+
